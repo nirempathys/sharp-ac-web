@@ -1,0 +1,253 @@
+:root {
+  --bg: #0b0f14;
+  --card: #121821;
+  --line: #1f2a37;
+  --text: #e8eef7;
+  --muted: #8fa3b8;
+  --accent: #33d17a;
+  --accent2: #4aa8ff;
+  --danger: #ff5c5c;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.status {
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.power {
+  width: 100%;
+  padding: 26px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #1a2330;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.08s ease;
+}
+
+.power:active {
+  transform: scale(0.99);
+}
+
+.power.on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #06130b;
+}
+
+.temp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.temp button {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #1a2330;
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.temp button:active {
+  background: #253142;
+}
+
+.temp .val {
+  min-width: 150px;
+  text-align: center;
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.row button {
+  flex: 1;
+  padding: 12px 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #1a2330;
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.row button.active {
+  background: var(--accent2);
+  border-color: var(--accent2);
+  color: #04121f;
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #1a2330;
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.actions button:active {
+  background: #253142;
+}
+
+pre {
+  margin: 14px 0 0;
+  padding: 12px;
+  background: #0a0e13;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.settings h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.settings label {
+  display: block;
+  margin: 12px 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+input,
+select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #0f141b;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent2);
+}
+
+.log {
+  margin-top: 14px;
+  padding: 12px;
+  min-height: 54px;
+  max-height: 180px;
+  overflow: auto;
+  background: #0a0e13;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+footer {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+footer a {
+  color: var(--accent2);
+}
+
+@media (max-width: 420px) {
+  .wrap {
+    padding: 14px 12px 32px;
+  }
+  .temp .val {
+    min-width: 110px;
+    font-size: 38px;
+  }
+  .row button {
+    font-size: 13px;
+  }
+}

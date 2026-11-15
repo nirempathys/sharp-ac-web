@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <title>Sharp AC Web</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Sharp AC</h1>
+        <p class="sub">SharpAC4 · 38 kHz · encoder murni JS</p>
+      </div>
+      <span id="status" class="status">idle</span>
+    </header>
+
+    <main>
+      <section class="card">
+        <button id="power" class="power">OFF</button>
+
+        <div class="temp">
+          <button id="tminus" aria-label="turun suhu">−</button>
+          <div id="tempval" class="val">24°C</div>
+          <button id="tplus" aria-label="naik suhu">+</button>
+        </div>
+
+        <div class="row" id="modes">
+          <button data-mode="cool">Cool</button>
+          <button data-mode="heat">Heat</button>
+        </div>
+
+        <div class="row" id="fans">
+          <button data-fan="auto">Auto</button>
+          <button data-fan="1">1</button>
+          <button data-fan="2">2</button>
+          <button data-fan="3">3</button>
+        </div>
+
+        <div class="actions">
+          <button id="send">Send frame</button>
+          <button id="copy">Copy JSON</button>
+        </div>
+        <pre id="raw"></pre>
+      </section>
+
+      <section class="card settings">
+        <h2>Bridge</h2>
+        <label>Transport
+          <select id="transport">
+            <option value="mqtt">MQTT (WSS)</option>
+            <option value="http">HTTP bridge</option>
+            <option value="webhook">Webhook / Tuya</option>
+          </select>
+        </label>
+
+        <div id="mqttFields">
+          <label>Broker WSS
+            <input id="broker" spellcheck="false">
+          </label>
+          <label>Secret (harus sama dengan firmware)
+            <input id="secret" spellcheck="false" autocomplete="off">
+          </label>
+          <label>Topic publish
+            <input id="topic" readonly>
+          </label>
+        </div>
+
+        <div id="httpFields" hidden>
+          <label>HTTP URL
+            <input id="httpurl" spellcheck="false">
+          </label>
+        </div>
+
+        <div id="webhookFields" hidden>
+          <label>Webhook URL
+            <input id="webhook" spellcheck="false" placeholder="https://...">
+          </label>
+        </div>
+
+        <div class="row">
+          <button id="connect">Connect / Test</button>
+          <button id="gen">New secret</button>
+        </div>
+
+        <div id="log" class="log"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Browser tidak bisa akses IR HP. Kontrol lewat ESP8266/ESP32 IR bridge (MQTT/HTTP).</p>
+      <p><a href="https://github.com/nirempathys/sharp-ac-web">source + wiring</a></p>
+    </footer>
+  </div>
+
+  <script src="./vendor/mqtt.min.js"></script>
+  <script src="./assets/sharpac.js"></script>
+  <script src="./assets/transport.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
