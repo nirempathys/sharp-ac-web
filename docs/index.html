@@ -74,6 +74,9 @@
           <label>HTTP URL
             <input id="httpurl" spellcheck="false">
           </label>
+          <div class="row">
+            <button id="localbridge" type="button">Local 127.0.0.1</button>
+          </div>
         </div>
 
         <div id="webhookFields" hidden>
@@ -92,7 +95,7 @@
     </main>
 
     <footer>
-      <p>Browser tidak bisa akses IR HP. Kontrol lewat ESP8266/ESP32 IR bridge (MQTT/HTTP).</p>
+      <p>Browser tidak bisa akses IR HP. Kontrol lewat ESP8266/ESP32 IR bridge (MQTT/HTTP), atau tes cepat pakai <code>python3 bridge/lirc_bridge.py</code> + HTTP → Local 127.0.0.1.</p>
       <p><a href="https://github.com/nirempathys/sharp-ac-web">source + wiring</a></p>
     </footer>
   </div>

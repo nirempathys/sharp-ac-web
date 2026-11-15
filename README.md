@@ -22,6 +22,24 @@ Alternatif lokal tanpa internet: web app di-serve via HTTP, lalu `POST` langsung
 4. Tekan **ON/OFF**, atur suhu 18–32°C, mode Cool/Heat, fan Auto/1/2/3.
 5. Status `ESP ok · <ip>` artinya ESP menerima dan menembak IR.
 
+## Tes cepat pakai IR HP (bridge lokal)
+
+Kalau belum pegang ESP dan mau langsung tes nyala:
+
+```bash
+cd ~/sharp-ac-web
+python3 bridge/lirc_bridge.py
+```
+
+Script otomatis naik ke root lewat `su`. Lalu:
+
+1. Buka <https://nirempathys.github.io/sharp-ac-web/>
+2. Transport → **HTTP bridge**
+3. Tap **Local 127.0.0.1** (URL jadi `http://127.0.0.1:8080/ir`)
+4. Tekan **Connect / Test** atau **Send frame**
+
+Chrome mengizinkan HTTPS → `http://127.0.0.1` (loopback). Kalau diblok, buka `http://127.0.0.1:8080/` — app yang sama, di-serve langsung oleh bridge (HTTP, same-origin).
+
 ## Hardware
 
 - ESP8266 (NodeMCU / Wemos D1 mini) atau ESP32

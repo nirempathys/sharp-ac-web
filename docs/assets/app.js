@@ -51,6 +51,7 @@
     secret: $("secret"),
     topic: $("topic"),
     httpurl: $("httpurl"),
+    localbridge: $("localbridge"),
     webhook: $("webhook"),
     connect: $("connect"),
     gen: $("gen"),
@@ -215,6 +216,15 @@
   el.httpurl.addEventListener("change", () => {
     settings.httpurl = el.httpurl.value.trim();
     store.set("httpurl", settings.httpurl);
+  });
+  el.localbridge.addEventListener("click", () => {
+    settings.transport = "http";
+    settings.httpurl = location.protocol === "http:" ? "/ir" : "http://127.0.0.1:8080/ir";
+    store.set("transport", settings.transport);
+    store.set("httpurl", settings.httpurl);
+    Transport.disconnect();
+    render();
+    log("HTTP URL: " + settings.httpurl);
   });
   el.webhook.addEventListener("change", () => {
     settings.webhook = el.webhook.value.trim();
